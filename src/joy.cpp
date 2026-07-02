@@ -2,7 +2,7 @@
 
 #define JOY A1
 
-const float V_MAX = 100.0;
+const float V_MAX = 300.0;
 const int JOY_CENTRO = 521;
 const int ZONA_MORTA = 30;
 
