@@ -14,11 +14,16 @@ void setup() {
 }
 
 void loop() {
-  // float velocidade = lerVelocidadeJoystick();
   int resistencia = analogRead(R);
   int posicao = map(resistencia, 0, 900, 0, 100);
+  
+  
+  // float speed_dc = 
+  // controlMotorDC(speed_dc);
 
-  // controlarMotorPasso(velocidade);
+  
+  // float speed_step = lerVelocidadeJoystick();
+  // controlarMotorPasso(speed_step);
 
   static unsigned long tempoPrint = 1000;
 
@@ -30,6 +35,6 @@ void loop() {
     Serial.println(posicao);
 
   //   Serial.print("Velocidade: ");
-  //   Serial.println(velocidade);
+  //   Serial.println(speed_step);
   }
 }
