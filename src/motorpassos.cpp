@@ -1,7 +1,7 @@
 #include "MotorPassos.h"
 
 // Pinos das bobinas
-#define B4 3
+#define B4 10
 #define B3 5
 #define B2 6
 #define B1 9
