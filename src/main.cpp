@@ -1,25 +1,35 @@
 #include <Arduino.h>
 #include <MotorPassos.h>
 #include <JoyStick.h>
+#include <ForceSensor.h>
+
+#define R A0
 
 void setup() {
   Serial.begin(9600);
-
+  pinMode(R, INPUT);
   setupJoystick();
   setupMotorPasso();
+  setupForceSensor();
 }
 
 void loop() {
-  float velocidade = lerVelocidadeJoystick();
+  // float velocidade = lerVelocidadeJoystick();
+  int resistencia = analogRead(R);
+  int posicao = map(resistencia, 0, 900, 0, 100);
 
-  controlarMotorPasso(velocidade);
+  // controlarMotorPasso(velocidade);
 
-  static unsigned long tempoPrint = 0;
+  static unsigned long tempoPrint = 1000;
 
   if (millis() - tempoPrint >= 200) {
     tempoPrint = millis();
+    Serial.print("Resistencia: ");
+    Serial.print(resistencia);
+    Serial.print(" | Posicao: ");
+    Serial.println(posicao);
 
-    Serial.print("Velocidade: ");
-    Serial.println(velocidade);
+  //   Serial.print("Velocidade: ");
+  //   Serial.println(velocidade);
   }
 }
